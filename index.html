@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Game Libraries</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #f0f0f0;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+        color: #00d4ff;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+        letter-spacing: 2px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 90%;
+        max-width: 600px;
+      }
+
+      li {
+        margin: 25px 0;
+      }
+
+      .card {
+        display: block;
+        padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #f0f0f0;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(0, 212, 255, 0.3),
+          transparent
+        );
+        transition: all 0.5s ease;
+      }
+
+      .card:hover::before {
+        left: 100%;
+      }
+
+      .card:hover {
+        color: #00d4ff;
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        border-color: rgba(0, 212, 255, 0.6);
+      }
+
+      .credit {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        font-weight: normal;
+        color: #bbb;
+      }
+
+      .credit a {
+        color: #00d4ff;
+        text-decoration: none;
+      }
+
+      .credit a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 50px;
+        font-size: 0.9rem;
+        color: #aaa;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎮 Game Libraries</h1>
+    <ul>
+      <li>
+        <a href="games/index.html" class="card">Games</a>
+        <div class="credit">
+          👤 Credit:
+          <a href="https://github.com/TomMalbran/games" target="_blank"
+            >TomMalbran</a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="Gams/index.html" class="card">Gams</a>
+        <div class="credit">
+          👤 Credit:
+          <a href="https://github.com/Gams-Offline/Gams" target="_blank"
+            >Gams-Offline</a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="gfiles/index.html" class="card">Gfiles</a>
+        <div class="credit">
+          👤 Credit:
+          <a href="https://github.com/BinBashBanana/gfiles" target="_blank"
+            >BinBashBanana</a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="HTML-Games-V2/" class="card">HTML-Games-V2</a>
+        <div class="credit">
+          👤 Credit:
+          <a href="https://github.com/tw31122007/HTML-Games-V2" target="_blank"
+            >tw31122007</a
+          >
+        </div>
+      </li>
+    </ul>
+    <footer>Made with ❤️ by Abdul Hadi</footer>
+  </body>
+</html>

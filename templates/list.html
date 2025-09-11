@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Index of /{{ path }}</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* ====== Global Styles ====== */
+      body {
+        font-family: Arial, sans-serif;
+        background: #121212; /* Dark background */
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        color: #e0e0e0; /* Light text for contrast */
+      }
+
+      /* ====== Headings ====== */
+      h1 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      /* ====== Search Box ====== */
+      #searchBox {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        background: #1e1e1e; /* Dark input background */
+        color: #f0f0f0;
+      }
+
+      #searchBox::placeholder {
+        color: #888; /* Placeholder text */
+      }
+
+      /* ====== List Styles ====== */
+      ul {
+        list-style: none;
+        padding: 0;
+        max-width: 400px;
+        margin: auto;
+      }
+
+      li {
+        background: #1e1e1e;
+        margin: 12px 0;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      li:hover {
+        transform: translateY(-4px);
+        background: #252525; /* Slightly lighter on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+      }
+
+      /* ====== Links ====== */
+      a {
+        text-decoration: none;
+        color: #4da6ff;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: #80c0ff;
+      }
+
+      /* ====== Hidden Class ====== */
+      .hidden {
+        display: none;
+      }
+
+      /* ====== Scrollbar (Dark Themed) ====== */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #121212;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game List</h1>
+    <h3>Games: {{ file_count }}</h3>
+
+    <!-- Search Box -->
+    <input type="text" id="searchBox" placeholder="Search files..." />
+
+    <!-- File List -->
+    <ul id="gameList">
+      {% for file in files %}
+      <li><a href="{{ file }}">{{ file.replace('/', '') }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <script>
+      const searchBox = document.getElementById("searchBox");
+      const gameList = document.getElementById("gameList");
+      const games = gameList.getElementsByTagName("li");
+
+      searchBox.addEventListener("keyup", function () {
+        let query = searchBox.value.toLowerCase();
+        for (let i = 0; i < games.length; i++) {
+          let gameName = games[i].innerText.toLowerCase();
+          if (gameName.includes(query)) {
+            games[i].classList.remove("hidden");
+          } else {
+            games[i].classList.add("hidden");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

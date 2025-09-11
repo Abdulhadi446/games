@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Game List</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #121212; /* Dark background */
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        color: #e0e0e0; /* Light text */
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      #searchBox {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        background: #1e1e1e;
+        color: #f0f0f0;
+      }
+
+      #searchBox::placeholder {
+        color: #888;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        max-width: 400px;
+        margin: auto;
+      }
+
+      li {
+        background: #1e1e1e;
+        margin: 12px 0;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      li:hover {
+        transform: translateY(-4px);
+        background: #252525; /* Slightly lighter on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+      }
+
+      a {
+        text-decoration: none;
+        color: #4da6ff;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: #80c0ff;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game List</h1>
+
+    <!-- Search Box -->
+    <input type="text" id="searchBox" placeholder="Search games..." />
+
+    <!-- Game List -->
+    <ul id="gameList">
+      <li><a href="bounce/index.html">Bounce</a></li>
+      <li><a href="defender/index.html">Defender</a></li>
+      <li><a href="pacman/index.html">Pacman</a></li>
+      <li><a href="puzzle/index.html">Puzzle</a></li>
+      <li><a href="snake/index.html">Snake</a></li>
+      <li><a href="spider/index.html">Spider</a></li>
+      <li><a href="tetris/index.html">Tetris</a></li>
+    </ul>
+
+    <script>
+      const searchBox = document.getElementById("searchBox");
+      const gameList = document.getElementById("gameList");
+      const games = gameList.getElementsByTagName("li");
+
+      searchBox.addEventListener("keyup", function () {
+        let query = searchBox.value.toLowerCase();
+        for (let i = 0; i < games.length; i++) {
+          let gameName = games[i].innerText.toLowerCase();
+          if (gameName.includes(query)) {
+            games[i].classList.remove("hidden");
+          } else {
+            games[i].classList.add("hidden");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
